@@ -1,0 +1,32 @@
+<div class="login_container" align="center">
+<mat-card class="mat_card">
+    <div class="title">Login Form</div>
+
+    <div class="Input-fields">
+
+        <mat-form-field>
+            <input matInput type="email" placeholder="User Email">
+        </mat-form-field>
+
+
+        <mat-form-field>
+            <input matInput type="password" placeholder="password">
+        </mat-form-field>
+    </div>
+
+    <div class="button_container">
+        <div class="button">
+            
+            <button (click)='register()'>SignUp</button>
+
+        </div>
+        <div class="button">
+            <button click()='login()' >Login</button>
+        </div>
+    </div>
+    <div class="Forgot">
+            <button>Forgot</button>
+    </div>
+</mat-card>
+<router-outlet></router-outlet>
+</div>
