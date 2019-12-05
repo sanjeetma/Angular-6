@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Observable, observable } from 'rxjs';
 
 
@@ -16,6 +16,6 @@ export class AppComponent {
   constructor(private http:HttpClient){}
   ngOnInit(){
     
-     this.http.get('http://localhost:8080/users').subscribe((response) => console.log(response));
+   
   }
 }

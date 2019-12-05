@@ -1,32 +1,33 @@
 <div class="login_container" align="center">
 <mat-card class="mat_card">
     <div class="title">Login Form</div>
-
+<form [formGroup]="loginform">
     <div class="Input-fields">
 
         <mat-form-field>
-            <input matInput type="email" placeholder="User Email">
+            <input matInput type="email"  placeholder="User Email" formControlName="email" required>
         </mat-form-field>
 
 
         <mat-form-field>
-            <input matInput type="password" placeholder="password">
+            <input matInput type="password" placeholder="password" formControlName="password"  required>
         </mat-form-field>
     </div>
 
     <div class="button_container">
         <div class="button">
             
-            <button (click)='register()'>SignUp</button>
+            <button mat-raised-button color="primary" (click)='register()'>SignUp</button>
 
         </div>
         <div class="button">
-            <button click()='login()' >Login</button>
+            <button mat-raised-button color="primary" (click)='Login()'>Login</button>
         </div>
     </div>
     <div class="Forgot">
-            <button>Forgot</button>
+        <button  mat-button routerLink (click)='forgetpassword()'>ForgetPassword?</button>
     </div>
+</form>
 </mat-card>
 <router-outlet></router-outlet>
 </div>

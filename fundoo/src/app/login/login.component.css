@@ -12,6 +12,7 @@
   .mat_card{
       width: 25%;
       height: 50vh;
+      
   }
   .title{
       display:flex;
@@ -19,6 +20,7 @@
       font: 200;
   }
   .Input-fields{
+      
       
   }
   /* .button{
@@ -33,8 +35,9 @@
       margin-bottom: 15px;
   }
   .Forgot{
+      height:50px;
       display: flex;
-      justify-content: left;
+      justify-content: center;
   }
   .title{
       display: flex;

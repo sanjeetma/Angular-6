@@ -4,34 +4,35 @@
 <div>
 <div class="register-container" align=center>
   <mat-card class="input-card">
-
+    <form [formGroup]="Registerform">
 <div class="input-field">
         <mat-form-field>
-          <input matInput type="text" placeholder="User Name">
+          <input matInput type="text" placeholder="User Name" formControlName="name" >
         </mat-form-field>
       
         <mat-form-field>
-          <input matInput type="email" placeholder="email">
+          <input matInput type="email" placeholder="email" formControlName="email" required>
         </mat-form-field>
 
 
         <mat-form-field>
-            <input matInput type="text" placeholder="mobile">
+            <input matInput type="text" placeholder="mobile" formControlName="mobile" >
         </mat-form-field>
 
 
           <mat-form-field>
-              <input matInput type="password" placeholder="password">
+              <input matInput type="password" placeholder="password" formControlName="password" required>
           </mat-form-field>
 
 
-          <mat-form-field>
-               <input matInput type="password" placeholder="confirm password">
-         </mat-form-field>
+          <!-- <mat-form-field>
+               <input matInput type="password" placeholder="confirm password" formControlName="confirmPassword" required>
+         </mat-form-field> -->
 
         </div>    
 
-        <button mat-button>Register</button>
+        <button (click)='Register()'>Register</button>
+        </form>
       </mat-card>
       </div>
     </div>
