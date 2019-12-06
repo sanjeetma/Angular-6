@@ -4,6 +4,7 @@ import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { componentFactoryName } from '@angular/compiler';
 import { ForgetpasswordComponent } from './forgetpassword/forgetpassword.component';
+import { ResetPasswordComponent } from './reset-password/reset-password.component';
 
 
 const routes: Routes = [
@@ -15,6 +16,9 @@ const routes: Routes = [
   },
   {
     path: 'forgetpassword' ,component:ForgetpasswordComponent
+  },
+  {
+    path:'resetPassword',component:ResetPasswordComponent
   }
 ];
 

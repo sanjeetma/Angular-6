@@ -4,6 +4,7 @@ import { HttpClientModule, HttpClient, HttpHeaders } from '@angular/common/http'
 import { FormGroup, FormControl, NgForm } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { error } from 'util';
+import { UserserviceService } from '../service/userservice.service';
 
 
 @Component({
@@ -16,7 +17,9 @@ export class LoginComponent implements OnInit {
   private httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
     };
-  constructor(private router:Router,private http:HttpClient,private snackbar:MatSnackBar) { 
+  constructor(private router:Router,private http:HttpClient,
+    private snackbar:MatSnackBar,
+    private userservice:UserserviceService) { 
 
     
   }
@@ -37,9 +40,11 @@ export class LoginComponent implements OnInit {
     if (this.loginform.invalid) {
       return;
     }
-     this.http.post('http://localhost:8080/users/login',this.loginform.value,this.httpOptions).subscribe(
+      // this.http.post('userservice.login',this.loginform.value,this.httpOptions)
+      
+      this.userservice.login(this.loginform.value).subscribe(
        () =>{
-        this.snackbar.open('login successfull', 'Ok', {duration: 3000});
+       this.snackbar.open('login successfull', 'Ok', {duration: 3000});
 
        },
        (error: any) => {

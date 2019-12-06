@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { FormGroup, FormControl, NgForm } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { UserserviceService } from '../service/userservice.service';
 
 @Component({
   selector: 'app-register',
@@ -14,7 +15,9 @@ export class RegisterComponent implements OnInit {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
     };
   
-  constructor(private http:HttpClient,private snackbar:MatSnackBar) { }
+  constructor(private http:HttpClient,
+    private snackbar:MatSnackBar,
+    private userservice:UserserviceService) { }
 
   ngOnInit() {
     this.Registerform=new FormGroup({
@@ -29,7 +32,7 @@ export class RegisterComponent implements OnInit {
   Register(RegistarionForm:NgForm){
      
     
-    this.http.post('http://localhost:8080/users/register',this.Registerform.value,this.httpOptions).subscribe(response=>{
+   this.userservice.registration (this.Registerform.value).subscribe(response=>{
         this.snackbar.open('Registration Successfull...check your email for verification', 'Ok', {duration: 3000});
 
        },
