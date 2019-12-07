@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { FormGroup, FormControl, NgForm } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { UserserviceService } from '../service/userservice.service';
+import { Router, Route, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -15,9 +16,12 @@ export class RegisterComponent implements OnInit {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
     };
   
+  
   constructor(private http:HttpClient,
     private snackbar:MatSnackBar,
-    private userservice:UserserviceService) { }
+    private userservice:UserserviceService,
+    private router:Router,
+    private route:ActivatedRoute) { }
 
   ngOnInit() {
     this.Registerform=new FormGroup({
@@ -41,9 +45,10 @@ export class RegisterComponent implements OnInit {
         this.snackbar.open(error.error.description, 'all field is required in correct format', {duration: 3000});
 
     }
-
+   
     );
-    
+    this.router.navigateByUrl('login');
+
   }
   
 }

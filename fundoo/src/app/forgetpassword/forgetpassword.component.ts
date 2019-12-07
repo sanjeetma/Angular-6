@@ -28,16 +28,21 @@ export class ForgetpasswordComponent implements OnInit {
 submit(){
 this.userservice.forgetpassword(this.updateform.value)
 .subscribe(
-  ()=>{
+  response=>{
   this.snackbar.open('check your email for updatepassword', 'Ok', {duration: 3000});
+  //localStorage.setItem("emailtoken",token);
+  console.log(response);
 },
 (error: any) => {
+  localStorage.setItem("emailtoken",error);
   console.log( error);
+  console.log('hello')
   this.snackbar.open(error.error.description, 'Invalid Email', {duration: 3000});
 }
-);
+ );
 
-this.router.navigateByUrl('resetPassword/:token');
+//this.router.navigateByUrl('login');
+
 }
 }
 

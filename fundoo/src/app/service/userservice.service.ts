@@ -23,9 +23,9 @@ private httpOptions = {
     return this.http.post<any>(this.apiurl+'users/login',user,this.httpOptions);
     }
     
-    resetpassword(user:any):Observable<any>{
+    resetpassword(user:any,token:any):Observable<any>{
     console.log(user);
-    return this.http.put<any>(this.apiurl+'users/update-password',user,this.httpOptions);
+    return this.http.post<any>(this.apiurl+'users/update-password',user,{ headers: new HttpHeaders().set('token', token) });
     }
    forgetpassword(user:any):Observable<any>{
       console.log(user);
