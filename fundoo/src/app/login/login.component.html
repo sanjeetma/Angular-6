@@ -6,22 +6,31 @@
 
         <mat-form-field>
             <input matInput type="email"  placeholder="User Email" formControlName="email" required>
-        </mat-form-field>
+            <mat-error *ngIf="loginform.get('email').errors">
+                Enter Valid Email
+              </mat-error>
 
+        </mat-form-field>
+        <mat-error>
+            
+        </mat-error>
 
         <mat-form-field>
             <input matInput type="password" placeholder="password" formControlName="password"  required>
+            <mat-error *ngIf="loginform.get('password').errors">
+                password must be 5 character Long.
+              </mat-error>
         </mat-form-field>
     </div>
 
     <div class="button_container">
         <div class="button">
             
-            <button mat-raised-button color="primary" (click)='register()'>SignUp</button>
+            <a mat-button routerLink (click)='register()'>SignUp</a>
 
         </div>
         <div class="button">
-            <button mat-raised-button color="primary" (click)='Login()'>Login</button>
+            <button mat-raised-button color="Basic" [disabled]="!loginform.valid"  (click)='Login()'>Login</button>
         </div>
     </div>
     <div class="Forgot">

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { FormGroup, FormControl, NgForm } from '@angular/forms';
+import { FormGroup, FormControl, NgForm, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { UserserviceService } from '../service/userservice.service';
 import { Router, Route, ActivatedRoute } from '@angular/router';
@@ -25,10 +25,10 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit() {
     this.Registerform=new FormGroup({
-      name:new FormControl(''),
-      email:new FormControl(''),
-      mobile:new FormControl(''),
-      password:new FormControl(''),
+      name:new FormControl('',[Validators.required,Validators.minLength(5)]),
+      email:new FormControl('',[Validators.required,Validators.email]),
+      mobile:new FormControl('',[Validators.required,Validators.minLength(10),Validators.maxLength(10)]),
+      password:new FormControl('',[Validators.required,Validators.required,Validators.minLength(5)]),
       
     })
   }
@@ -38,6 +38,7 @@ export class RegisterComponent implements OnInit {
     
    this.userservice.registration (this.Registerform.value).subscribe(response=>{
         this.snackbar.open('Registration Successfull...check your email for verification', 'Ok', {duration: 3000});
+        this.router.navigateByUrl('login');
 
        },
        (error: any) => {
@@ -47,7 +48,7 @@ export class RegisterComponent implements OnInit {
     }
    
     );
-    this.router.navigateByUrl('login');
+    
 
   }
   

@@ -5,6 +5,7 @@ import { LoginComponent } from './login/login.component';
 import { componentFactoryName } from '@angular/compiler';
 import { ForgetpasswordComponent } from './forgetpassword/forgetpassword.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 
 
@@ -24,6 +25,10 @@ const routes: Routes = [
   {
     path:'resetPassword/:token',component:ResetPasswordComponent
   },
+  
+  {
+    path:'dashboard',component:DashboardComponent
+  }
   
 ];
 

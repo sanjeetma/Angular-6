@@ -1,0 +1,42 @@
+<mat-toolbar fxLayout="row" fxLayoutGap="50px">
+            <mat-drawer-container>
+
+                  <mat-drawer>
+
+                   <p>hello</p>
+                   </mat-drawer>
+    <div fxLayout="row" fxLayoutAlign="start center">
+          <button type="button" mat-button (click)="drawer.toggle()">
+                <mat-icon>menu</mat-icon>
+          </button>
+    </div>
+    </mat-drawer-container>
+
+   
+    <p class="title">FundooNots</p>
+
+    <div fxLayout="row" fxLayoutAlign="center" fxLayoutGap="30px">
+          <mat-card class="mat-card" fxLayout="row" fxLayout="center">
+                <mat-icon class="searchIcon">search</mat-icon>
+                <input matInput class="searchBar">
+          </mat-card>
+
+    </div>
+
+    <div class="icon" fxLayoutGap="20px">
+         
+      <button  class="refresh" mat-icon-button matTooltip="refresh" (click) = "refresh()">
+       <mat-icon>refresh</mat-icon>
+      </button>
+          
+
+          <mat-icon>view_agenda</mat-icon>
+
+          <mat-icon>settings</mat-icon>
+
+          <mat-icon class="appsIcon">apps</mat-icon>
+          <mat-icon>account_circle</mat-icon>
+
+    </div>
+
+</mat-toolbar>

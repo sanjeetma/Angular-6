@@ -54,6 +54,7 @@ import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatTreeModule} from '@angular/material/tree';
 import { ForgetpasswordComponent } from './forgetpassword/forgetpassword.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 
 
@@ -65,6 +66,7 @@ import { ResetPasswordComponent } from './reset-password/reset-password.componen
     LoginComponent,
     ForgetpasswordComponent,
     ResetPasswordComponent,
+    DashboardComponent,
     
   ],
   imports: [

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClientModule, HttpClient, HttpHeaders } from '@angular/common/http';
-import { FormGroup, FormControl, NgForm } from '@angular/forms';
+import { FormGroup, FormControl, NgForm, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { error } from 'util';
 import { UserserviceService } from '../service/userservice.service';
@@ -26,8 +26,8 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     this.loginform=new FormGroup({
-      email:new FormControl(''),
-      password:new FormControl('')
+      email:new FormControl('',[Validators.required,Validators.email]),
+      password:new FormControl('',[Validators.required,Validators.minLength(5)])
     })
   }
   register(){
@@ -45,7 +45,7 @@ export class LoginComponent implements OnInit {
       this.userservice.login(this.loginform.value).subscribe(
        () =>{
        this.snackbar.open('login successfull', 'Ok', {duration: 3000});
-
+       this.router.navigateByUrl('dashboard');
        },
        (error: any) => {
         console.log( error);

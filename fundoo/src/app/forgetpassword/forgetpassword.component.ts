@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { FormGroup, FormControl, NgForm } from '@angular/forms';
+import { FormGroup, FormControl, NgForm, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { UserserviceService } from '../service/userservice.service';
 import { Router } from '@angular/router';
@@ -22,7 +22,7 @@ export class ForgetpasswordComponent implements OnInit {
 
   ngOnInit() {
     this.updateform=new FormGroup({
-      email:new FormControl(''),
+      email:new FormControl('',[Validators.required,Validators.email]),
     })
   }
 submit(){
@@ -30,8 +30,8 @@ this.userservice.forgetpassword(this.updateform.value)
 .subscribe(
   response=>{
   this.snackbar.open('check your email for updatepassword', 'Ok', {duration: 3000});
-  //localStorage.setItem("emailtoken",token);
-  console.log(response);
+  
+  this.router.navigateByUrl('login');
 },
 (error: any) => {
   localStorage.setItem("emailtoken",error);
@@ -41,7 +41,6 @@ this.userservice.forgetpassword(this.updateform.value)
 }
  );
 
-//this.router.navigateByUrl('login');
 
 }
 }
