@@ -6,6 +6,7 @@ import { componentFactoryName } from '@angular/compiler';
 import { ForgetpasswordComponent } from './forgetpassword/forgetpassword.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { NoteComponent } from './note/note.component';
 
 
 
@@ -28,6 +29,9 @@ const routes: Routes = [
   
   {
     path:'dashboard',component:DashboardComponent
+  },
+  {
+    path:'notes',component:NoteComponent
   }
   
 ];

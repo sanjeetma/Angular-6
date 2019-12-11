@@ -1,42 +1,92 @@
-<mat-toolbar fxLayout="row" fxLayoutGap="50px">
-            <mat-drawer-container>
+<mat-toolbar fxLayout="row" fxLayoutGap="30px">
+      <div fxLayout="row" fxLayoutAlign="start center">
+            <button type="button" mat-button (click)="drawer.toggle()">
+                  <mat-icon>menu</mat-icon>
+            </button>
+      </div>
 
-                  <mat-drawer>
 
-                   <p>hello</p>
-                   </mat-drawer>
-    <div fxLayout="row" fxLayoutAlign="start center">
-          <button type="button" mat-button (click)="drawer.toggle()">
-                <mat-icon>menu</mat-icon>
-          </button>
-    </div>
-    </mat-drawer-container>
 
-   
-    <p class="title">FundooNots</p>
+       <img src="assets/icons/keep_48dp.png" class="keepImage">
 
-    <div fxLayout="row" fxLayoutAlign="center" fxLayoutGap="30px">
-          <mat-card class="mat-card" fxLayout="row" fxLayout="center">
-                <mat-icon class="searchIcon">search</mat-icon>
-                <input matInput class="searchBar">
-          </mat-card>
+       
+      <p class="title">FundooNote</p>
 
-    </div>
+      <div fxLayout="row" fxLayoutAlign="center" fxLayoutGap="30px">
+            <mat-card class="mat-card" fxLayout="row" fxLayout="center">
+                  <mat-icon class="searchIcon">search</mat-icon>
+                  <input matInput class="searchBar">
+            </mat-card>
 
-    <div class="icon" fxLayoutGap="20px">
-         
-      <button  class="refresh" mat-icon-button matTooltip="refresh" (click) = "refresh()">
-       <mat-icon>refresh</mat-icon>
-      </button>
-          
+      </div>
 
-          <mat-icon>view_agenda</mat-icon>
+      <div class="icon" fxLayoutGap="20px">
+           
+                  <button  class="refresh" mat-icon-button matTooltip="refresh" (click) = "refresh()">
+                      <mat-icon>refresh</mat-icon>
+                  </button>
+            
 
-          <mat-icon>settings</mat-icon>
+            <mat-icon>view_agenda</mat-icon>
 
-          <mat-icon class="appsIcon">apps</mat-icon>
-          <mat-icon>account_circle</mat-icon>
+            <mat-icon>settings</mat-icon>
 
-    </div>
+            <mat-icon class="appsIcon">apps</mat-icon>
+            <mat-icon>account_circle</mat-icon>
 
+      </div>
 </mat-toolbar>
+<mat-divider></mat-divider>
+<div>
+      <mat-drawer-container class="example-container" fxFlex=100%>
+            <mat-drawer #drawer class="example-sidenav" mode="side">
+                  <mat-nav-list>
+                        <mat-list-item class="NotesList" routerLink="notes">
+
+                               <mat-icon matListIcon><img src="assets/icons/notes24px.svg"></mat-icon>
+                              <a matLine>Notes</a>
+                        </mat-list-item>
+                       
+                        <mat-list-item routerLink="notes/getAllReminder">
+                              <mat-icon matListIcon>notification_important</mat-icon>        
+                              <a matLine>Reminders</a>
+                        </mat-list-item>
+
+                  </mat-nav-list>
+                  <!-- <mat-divider></mat-divider>
+                  <mat-nav-list>
+                        <p class="labelTitle">Labels</p>
+                         <mat-list-item>
+                        <mat-nav-list>
+                              <mat-list-item *ngFor="let label of labels">
+                                     <mat-icon matListIcon><img src="../../../assets/label.svg"></mat-icon>
+                                    <a matLine>{{label.label}}</a>
+                              </mat-list-item> 
+                        </mat-nav-list>
+                         </mat-list-item> 
+                        <mat-list-item (click)="opendialogLabel(items)">
+                              <mat-icon matListIcon><img src="../../../assets/editLabel.svg"></mat-icon> 
+                              <a matLine>Edit Labels</a>
+                        </mat-list-item> -->
+
+                  <!-- </mat-nav-list> -->
+                  <mat-divider></mat-divider>
+                  <mat-nav-list>
+
+
+                        <mat-list-item routerLink="notes/getAllArchived">
+                         <mat-icon matListIcon>archive</mat-icon>
+                              <a matLine>Archive</a>
+                        </mat-list-item>
+                        <mat-list-item routerLink="notes/getAllTrash">
+                               <mat-icon matListIcon>delete</mat-icon>
+                              <a matLine>Trash</a>
+                        </mat-list-item>
+                  </mat-nav-list>
+            </mat-drawer>
+            <div fxLayout="column" fxLayoutAlign="center center" fxFlex=100%>
+            </div>
+            <router-outlet></router-outlet>
+
+      </mat-drawer-container>
+</div>
