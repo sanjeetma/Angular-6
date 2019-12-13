@@ -1,5 +1,5 @@
-<mat-toolbar fxLayout="row" fxLayoutGap="30px">
-      <div fxLayout="row" fxLayoutAlign="start center">
+<mat-toolbar fxLayout="row" fxLayoutGap="30px" fxLayoutGap="20px">
+      <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="20px">
             <button type="button" mat-button (click)="drawer.toggle()">
                   <mat-icon>menu</mat-icon>
             </button>
@@ -7,9 +7,9 @@
 
 
 
-       <img src="assets/icons/keep_48dp.png" class="keepImage">
+      <img src="assets/icons/keep_48dp.png" class="keepImage">
 
-       
+
       <p class="title">FundooNote</p>
 
       <div fxLayout="row" fxLayoutAlign="center" fxLayoutGap="30px">
@@ -19,36 +19,48 @@
             </mat-card>
 
       </div>
+      
 
       <div class="icon" fxLayoutGap="20px">
-           
-                  <button  class="refresh" mat-icon-button matTooltip="refresh" (click) = "refresh()">
-                      <mat-icon>refresh</mat-icon>
-                  </button>
-            
+
+            <button class="refresh" mat-icon-button matTooltip="refresh" (click)="refresh()">
+                  <mat-icon>refresh</mat-icon>
+            </button>
+
 
             <mat-icon>view_agenda</mat-icon>
 
+
             <mat-icon>settings</mat-icon>
 
-            <mat-icon class="appsIcon">apps</mat-icon>
-            <mat-icon>account_circle</mat-icon>
 
+            <mat-icon class="appsIcon">apps</mat-icon>
+
+            <button mat-icon-button matTooltip="Account" [matMenuTriggerFor]="Account">
+            <mat-icon>account_circle</mat-icon>
+            </button>
+
+            <mat-menu #Account="matMenu">
+                  <button mat-menu-item>Sign Out</button>
+                  <button mat-menu-item></button>
+  
+              </mat-menu>
       </div>
 </mat-toolbar>
+
 <mat-divider></mat-divider>
 <div>
-      <mat-drawer-container class="example-container" fxFlex=100%>
+      <mat-drawer-container class="example-container" fxFlex=100% fxLayoutGap="20px">
             <mat-drawer #drawer class="example-sidenav" mode="side">
                   <mat-nav-list>
                         <mat-list-item class="NotesList" routerLink="notes">
 
-                               <mat-icon matListIcon><img src="assets/icons/notes24px.svg"></mat-icon>
+                              <mat-icon matListIcon><img src="assets/icons/notes24px.svg"></mat-icon>
                               <a matLine>Notes</a>
                         </mat-list-item>
-                       
+
                         <mat-list-item routerLink="notes/getAllReminder">
-                              <mat-icon matListIcon>notification_important</mat-icon>        
+                              <mat-icon matListIcon>notification_important</mat-icon>
                               <a matLine>Reminders</a>
                         </mat-list-item>
 
@@ -75,18 +87,27 @@
 
 
                         <mat-list-item routerLink="notes/getAllArchived">
-                         <mat-icon matListIcon>archive</mat-icon>
+                              <mat-icon matListIcon>archive</mat-icon>
                               <a matLine>Archive</a>
                         </mat-list-item>
                         <mat-list-item routerLink="notes/getAllTrash">
-                               <mat-icon matListIcon>delete</mat-icon>
+                              <mat-icon matListIcon>delete</mat-icon>
                               <a matLine>Trash</a>
                         </mat-list-item>
                   </mat-nav-list>
             </mat-drawer>
             <div fxLayout="column" fxLayoutAlign="center center" fxFlex=100%>
-            </div>
+                           
+                  </div>
             <router-outlet></router-outlet>
+            <app-createnote></app-createnote>
+            
+            <app-note></app-note> 
+         
+            
+            
+            
 
       </mat-drawer-container>
+
 </div>

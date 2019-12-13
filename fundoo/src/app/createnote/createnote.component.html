@@ -1,0 +1,18 @@
+
+<mat-card class="collabrate">
+        <div fxLayout="row" fxLayoutAlign="space-around center">
+    <form [formGroup]="takeNote">
+            <mat-form-field>
+                    <input matInput type="text" placeholder="Title" formControlName="title" >
+                  </mat-form-field>
+                
+                  <mat-form-field>
+                    <textarea matInput placeholder="desc" formControlName="desc"></textarea>
+                  </mat-form-field>
+                  <button mat-raised-button (click)="close()">Close</button>
+
+    </form>
+    <app-property></app-property>
+    </div>
+</mat-card>
+

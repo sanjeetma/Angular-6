@@ -1,0 +1,9 @@
+.form {
+    display: flex;
+    flex-direction: column;
+  }
+  .collabrate{
+height: 220px;
+width: 220px;
+background-color: cadetblue;
+  }

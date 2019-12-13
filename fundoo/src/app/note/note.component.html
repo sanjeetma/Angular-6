@@ -1,11 +1,37 @@
-<div fxLayout="row" fxLayoutAlign="space-around center">
+<div *ngFor="let note of noteList">
+<div fxLayout="row" fxLayoutAlign="space-around center" fxLayoutGap="20px">
+
     <mat-card class="note_value">
-        <form [formGroup]="noteform">
-        <input matInput type="text" placeholder="Tittle" formControlName="tittle" value="{{tittle}}">
 
+        <mat-card-header>
+            <mat-card-title>
+                {{note.tittle}}
+            </mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            {{note.description}}
+        </mat-card-content>
+        
+    <app-property></app-property>  
 
-        <textarea matInput placeholder="Take a Note" formControlName="desc" value="{{desc}}"></textarea>
-    </form>
+       </mat-card>
+    
+   
+</div>
+ 
+
+<!-- <div fxLayout="row" fxLayoutAlign="space-around center">
+ 
+  
+    <mat-card class="note_value">
+    <mat-card-header>
+        <mat-card-title>
+                {{note.tittle}}
+        </mat-card-title>
+</mat-card-header>
+<mat-card-content>
+        {{note.description}}
+</mat-card-content>
         <div class="property-field">
 
             <button mat-icon-button matTooltip="Reminder" [matMenuTriggerFor]="Reminder">
@@ -58,9 +84,70 @@
 
     </mat-card>
 </div>
+</div> -->
 
 
 
 
 
 
+<!-- ######################################################################### -->
+<!-- <div class="flex-container">
+        <div  *ngFor="let list of notesList" > 
+<mat-card class="example-card"   [style.background-color]="list.colour" >
+      
+        <mat-card-header>
+                <mat-card-title>
+                        {{list.tittle}}
+                </mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+                {{list.description}}
+        </mat-card-content>
+</mat-card>
+</div>
+</div> 
+
+<div class="flex-container">
+        <div  *ngFor="let list of notesList" >
+                <mat-card [style.background-color]="list.colour" class="matcard-box"  >
+                        <mat-card-header>
+                                <mat-card-title>
+                                        {{list.tittle}}
+                                </mat-card-title>
+                        </mat-card-header>
+                        <mat-card-content >
+                        <textarea matInput class="textarea_list" [style.background-color]="list.colour" 
+                        (click)="openDialog(list)"
+                        #autosize="cdkTextareaAutosize" cdkTextareaAutosize>{{list.description}}</textarea>
+                        </mat-card-content>
+                </mat-card>
+        </div>
+</div> 
+
+
+
+
+ <mat-card>
+<mat-grid-list cols="4" rowHeight="100px">
+                <mat-grid-tile
+                    *ngFor="let list of notesList"
+                    [style.background]="list.colour">
+                    {{list.tittle}}
+                    {{list.description}}
+                </mat-grid-tile>
+              </mat-grid-list>  
+ <mat-card>
+              <mat-form-field>
+                <mat-label>{{list.tittle}}</mat-label>
+                <textarea matInput
+                          cdkTextareaAutosize
+                          #autosize="cdkTextareaAutosize"
+                          cdkAutosizeMinRows="1"
+    
+                          cdkAutosizeMaxRows="5"></textarea>
+                          {{list.description}}
+              </mat-form-field>
+        </mat-card> -->
+<!-- <app-createnote></app-createnote>
+        <app-display [notesList]='notesList'></app-display> -->

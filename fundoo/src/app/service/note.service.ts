@@ -17,7 +17,7 @@ export class NoteService {
 
   createNote(note: any):Observable<any>{
     console.log(note);
-    return this.http.post<any>(this.apiurl + 'notes/create',note, this.httpOptions);
+    return this.http.post<any>(this.apiurl+'notes/create',note,this.httpOptions);
     }
     deleteNote(note:any):Observable<any>{
       return this.http.get<any>(this.apiurl+'notes/delete/:id',);

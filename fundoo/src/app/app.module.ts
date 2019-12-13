@@ -56,6 +56,16 @@ import { ForgetpasswordComponent } from './forgetpassword/forgetpassword.compone
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { NoteComponent } from './note/note.component';
+import { ArchieveComponent } from './archieve/archieve.component';
+import { CreatenoteComponent } from './createnote/createnote.component';
+import { DisplaynotesComponent } from './displaynotes/displaynotes.component';
+import { EditComponent } from './edit/edit.component';
+import { ForgotComponent } from './forgot/forgot.component';
+import { ReminderComponent } from './reminder/reminder.component';
+import { ResetComponent } from './reset/reset.component';
+import { TrashComponent } from './trash/trash.component';
+import { CollabratorComponent } from './collabrator/collabrator.component';
+import { PropertyComponent } from './property/property.component';
 
 
 
@@ -69,6 +79,16 @@ import { NoteComponent } from './note/note.component';
     ResetPasswordComponent,
     DashboardComponent,
     NoteComponent,
+    ArchieveComponent,
+    CreatenoteComponent,
+    DisplaynotesComponent,
+    EditComponent,
+    ForgotComponent,
+    ReminderComponent,
+    ResetComponent,
+    TrashComponent,
+    CollabratorComponent,
+    PropertyComponent,
     
   ],
   imports: [

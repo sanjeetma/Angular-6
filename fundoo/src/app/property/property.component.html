@@ -1,0 +1,49 @@
+<div>
+<button mat-icon-button matTooltip="Reminder" [matMenuTriggerFor]="Reminder">
+
+        <mat-icon style="font-size: 17px !important">add_alert</mat-icon>
+    </button>
+
+
+    <button mat-icon-button matTooltip="Collaborate" [matMenuTriggerFor]="Collaborate">
+        <mat-icon style="font-size: 17px !important">group_add</mat-icon>
+    </button>
+
+    <button mat-icon-button matTooltip="Change color" routerLink="/dashboard">
+        <mat-icon style="font-size: 17px !important">color_lens</mat-icon>
+    </button>
+
+    <button mat-icon-button matTooltip="Add Image">
+        <mat-icon style="font-size: 17px !important">image</mat-icon>
+    </button>
+
+    <button mat-icon-button matTooltip="Archieve" routerLink="/dashboard">
+        <mat-icon style="font-size: 17px !important">archive</mat-icon>
+    </button>
+
+    <button mat-icon-button matTooltip="more" [matMenuTriggerFor]="more">
+        <mat-icon style="font-size: 17px !important">more_vert</mat-icon>
+    </button>
+    <button mat-button (click)="close()">close</button>
+    <mat-menu #more="matMenu">
+        <button mat-menu-item>Delete Note</button>
+        <button mat-menu-item>Change Label</button>
+        <button mat-menu-item>Make A Copy</button>
+    </mat-menu>
+
+    <mat-menu #Reminder="matMenu">
+        <button mat-menu-item [matMenuTriggerFor]="dateTime">Today</button>
+        <button mat-menu-item>Tomorrow</button>
+        <button mat-menu-item>Next Week</button>
+    </mat-menu>
+    <mat-menu #dateTime="matMenu">
+        <button mat-menu-item>date</button>
+        <button mat-menu-item>time</button>
+
+    </mat-menu>
+
+    <mat-menu #Collaborate="matMenu">
+        <app-collabrator></app-collabrator>
+    </mat-menu>
+</div>
+
