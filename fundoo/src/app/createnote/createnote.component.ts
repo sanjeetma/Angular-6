@@ -32,10 +32,15 @@ desc:new FormControl(),
 })
   }
 close(){
+  if((this.takeNote.controls.title.value!==null) && (this.takeNote.controls.desc.value!==null)){
   this.noteservice.createNote(this.takeNote.value).subscribe(response => {
     console.log(response);
-    this.snackbar.open('note created');
+    this.snackbar.open('note created','',{duration:3000});
+    this.router.navigateByUrl('dashboard');
   });
+}
+this.snackbar.open('can not create note wih null value','',{duration:3000});
+this.router.navigateByUrl('dashboard');
 }
 
 }

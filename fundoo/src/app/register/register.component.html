@@ -2,19 +2,24 @@
 <div>
 <div class="register-container" align=center>
   <mat-card class="input-card">
+      <mat-card-title>Register Here</mat-card-title>
     <form [formGroup]="Registerform">
 <div class="input-field">
-        <mat-form-field>
+        <mat-form-field appearance="legacy">
           <input matInput type="text" placeholder="User Name" formControlName="name" autocomplete="off" >
+          
+          <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
           <mat-error *ngIf="Registerform.get('name').errors">
             Name must be at least 5 characters long.
           </mat-error>
+          
       </mat-form-field>
 
 
 
         <mat-form-field>
           <input matInput type="email" placeholder="email" formControlName="email" required autocomplete="off">
+          <mat-icon matSuffix>email</mat-icon>
           <mat-error *ngIf="Registerform.get('email').errors">
             Enter valid Email
           </mat-error>
@@ -23,6 +28,7 @@
 
         <mat-form-field>
             <input matInput type="text" placeholder="mobile" formControlName="mobile" autocomplete="=off">
+            <mat-icon matSuffix>phone</mat-icon>
             <mat-error *ngIf="Registerform.get('mobile').errors">
               Mobile Number must be at least 10 digit long.
             </mat-error>
@@ -32,6 +38,7 @@
 
           <mat-form-field>
               <input matInput type="password" placeholder="password" formControlName="password" required>
+              <mat-icon matSuffix></mat-icon>
               <mat-error *ngIf="Registerform.get('password').errors">
                 Password must be at least 5 characters long.
               </mat-error>

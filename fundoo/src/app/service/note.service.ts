@@ -17,7 +17,7 @@ export class NoteService {
 
   createNote(note: any):Observable<any>{
     console.log(note);
-    return this.http.post<any>(this.apiurl+'notes/create',note,this.httpOptions);
+    return this.http.post<any>(this.apiurl+'notes/create',note,{ headers: new HttpHeaders().set('token', localStorage.getItem('token')) });
     }
     deleteNote(note:any):Observable<any>{
       return this.http.get<any>(this.apiurl+'notes/delete/:id',);
@@ -27,6 +27,6 @@ export class NoteService {
 
     }
     getAllNotes():Observable<any>{
-      return this.http.get<any>(this.apiurl+'notes');
+      return this.http.get<any>(this.apiurl+'notes?id='+localStorage.getItem('token'));
     }
 }
