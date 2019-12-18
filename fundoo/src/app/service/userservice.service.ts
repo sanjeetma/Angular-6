@@ -31,6 +31,7 @@ private httpOptions = {
       console.log(user);
       return this.http.post<any>(this.apiurl+'users/forgetpassword',user,this.httpOptions);
       }
+      
 }
 
 

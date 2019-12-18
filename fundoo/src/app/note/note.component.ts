@@ -13,54 +13,64 @@ import { FormGroup, FormControl } from '@angular/forms';
   styleUrls: ['./note.component.css']
 })
 export class NoteComponent implements OnInit {
-  note:Note;
+  note: Note;
   tittle: any;
   desc: any;
-  noteList:[];  
+  noteList: [];
   noteform: FormGroup;
-  open:boolean;
-  changeText:boolean
+  open: boolean;
+  changeText: boolean
   constructor(private noteservice: NoteService,
     private httpclient: HttpClient,
     private snackbar: MatSnackBar,
     private router: ActivatedRoute,
-    private route:Router) {
-      this.changeText = false;
+    private route: Router) {
+    this.changeText = false;
 
   }
 
   ngOnInit() {
     this.noteservice.getAllNotes()
       .subscribe((response: any) => {
-        this.noteList=response;
-         console.log(this.noteList);
-      //   console.log(this.noteList.length)
-      //    for (var i = 0; i < response.length; i++) {
-      //      this.note = response[i];
-          
-      //      //console.log(this.noteList);
-      //     console.log(this.note.tittle)
-      //      console.log(this.note.description)
-      //      this.tittle = this.note.tittle;
-      //      this.desc = this.note.description;
-           
-        
-      //    }
-       }
+        this.noteList = response;
+        console.log(this.noteList);
+        //   console.log(this.noteList.length)
+        //    for (var i = 0; i < response.length; i++) {
+        //      this.note = response[i];
+
+        //      //console.log(this.noteList);
+        //     console.log(this.note.tittle)
+        //      console.log(this.note.description)
+        //      this.tittle = this.note.tittle;
+        //      this.desc = this.note.description;
+
+
+        //    }
+      }
       );
-     
+
   }
-  
-  
-  delete(id:any){
-    this.noteservice.deleteNote(id).subscribe((response)=>{
+
+
+  delete(id: any) {
+    this.noteservice.deleteNote(id).subscribe((response) => {
       console.log(response);
-      console.log("id====="+id);
-      this.snackbar.open('note is deleted','',{duration:3000})
+      console.log("id=====" + id);
+      this.snackbar.open('note is deleted', '', { duration: 3000 })
     },
-    (error:any)=>{
-this.snackbar.open('note is note present at this index','',{duration:3000})
-    });
+      (error: any) => {
+        this.snackbar.open('note is note present at this index', '', { duration: 3000 })
+      });
+  }
+  Archieve(id: any) {
+    this.noteservice.Archieve(id).subscribe((response) => {
+      console.log(response);
+      console.log("id=====" + id);
+      this.snackbar.open(response.message, '', { duration: 3000 })
+    },
+      (error: any) => {
+        this.snackbar.open('note is note present at this index', '', { duration: 3000 })
+      });
   }
 
 }

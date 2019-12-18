@@ -29,4 +29,10 @@ export class NoteService {
     getAllNotes():Observable<any>{
       return this.http.get<any>(this.apiurl+'notes?id='+localStorage.getItem('token'));
     }
+    Archieve(id:any):Observable<any>{
+        return this.http.get<any>(this.apiurl+'notes/archive/'+id)
+    }
+    getAllNotesArchieve():Observable<any>{
+      return this.http.get<any>(this.apiurl+'notes/getallarcheive?id='+localStorage.getItem('token'));
+    }
 }

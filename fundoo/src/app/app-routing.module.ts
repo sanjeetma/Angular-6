@@ -8,6 +8,7 @@ import { ResetPasswordComponent } from './reset-password/reset-password.componen
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { NoteComponent } from './note/note.component';
 import { CollabratorComponent } from './collabrator/collabrator.component';
+import { ArchieveComponent } from './archieve/archieve.component';
 
 
 
@@ -30,11 +31,12 @@ const routes: Routes = [
   
   {
     path:'dashboard',component:DashboardComponent
+     
   },
+  {path:'getAllArchived',component:ArchieveComponent},
   {
-    path:'notes',component:NoteComponent,children:[
-      {path:'login',component:LoginComponent}
-    ]
+    path:'notes',component:NoteComponent
+    
   },
   {
     path:"collabrate", component:CollabratorComponent

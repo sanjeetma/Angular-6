@@ -1,1 +1,14 @@
-<p>archieve works!</p>
+<div *ngFor="let note of noteList" class="NoteDisplay">
+
+    <mat-card class="note_value">
+
+        <div>
+
+            {{note.tittle}}
+
+        </div>
+        <div>
+            {{note.description}}
+        </div>
+        </mat-card>
+        </div>
