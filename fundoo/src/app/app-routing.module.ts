@@ -32,10 +32,12 @@ const routes: Routes = [
     path:'dashboard',component:DashboardComponent
   },
   {
-    path:'notes',component:NoteComponent
+    path:'notes',component:NoteComponent,children:[
+      {path:'login',component:LoginComponent}
+    ]
   },
   {
-path:"collabrate", component:CollabratorComponent
+    path:"collabrate", component:CollabratorComponent
   }
   
 ];

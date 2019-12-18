@@ -9,7 +9,7 @@
         <mat-icon style="font-size: 17px !important">group_add</mat-icon>
     </button>
 
-    <button mat-icon-button matTooltip="Change color" routerLink="/dashboard">
+    <button mat-icon-button matTooltip="Change color" >
         <mat-icon style="font-size: 17px !important">color_lens</mat-icon>
     </button>
 
@@ -24,9 +24,9 @@
     <button mat-icon-button matTooltip="more" [matMenuTriggerFor]="more">
         <mat-icon style="font-size: 17px !important">more_vert</mat-icon>
     </button>
-    <button mat-button (click)="close()">close</button>
+   
     <mat-menu #more="matMenu">
-        <button mat-menu-item>Delete Note</button>
+        <button mat-menu-item (click)='deletenote()'>Delete Note</button>
         <button mat-menu-item>Change Label</button>
         <button mat-menu-item>Make A Copy</button>
     </mat-menu>
@@ -45,5 +45,7 @@
     <mat-menu #Collaborate="matMenu">
         <app-collabrator></app-collabrator>
     </mat-menu>
+
+    
 </div>
 

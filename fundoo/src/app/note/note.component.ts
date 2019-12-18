@@ -18,6 +18,7 @@ export class NoteComponent implements OnInit {
   desc: any;
   noteList:[];  
   noteform: FormGroup;
+  open:boolean;
   changeText:boolean
   constructor(private noteservice: NoteService,
     private httpclient: HttpClient,
@@ -32,25 +33,33 @@ export class NoteComponent implements OnInit {
     this.noteservice.getAllNotes()
       .subscribe((response: any) => {
         this.noteList=response;
-        console.log(this.noteList);
-        console.log(this.noteList.length)
-         for (var i = 0; i < response.length; i++) {
-           this.note = response[i];
+         console.log(this.noteList);
+      //   console.log(this.noteList.length)
+      //    for (var i = 0; i < response.length; i++) {
+      //      this.note = response[i];
           
-           //console.log(this.noteList);
-          console.log(this.note.tittle)
-           console.log(this.note.description)
-           this.tittle = this.note.tittle;
-           this.desc = this.note.description;
+      //      //console.log(this.noteList);
+      //     console.log(this.note.tittle)
+      //      console.log(this.note.description)
+      //      this.tittle = this.note.tittle;
+      //      this.desc = this.note.description;
            
         
-         }
-      }
-      )
+      //    }
+       }
+      );
+     
   }
-  close() {
-    this.noteservice.createNote(this.noteform).subscribe(response => {
-      this.snackbar.open('note created');
+  
+  
+  delete(id:any){
+    this.noteservice.deleteNote(id).subscribe((response)=>{
+      console.log(response);
+      console.log("id====="+id);
+      this.snackbar.open('note is deleted','',{duration:3000})
+    },
+    (error:any)=>{
+this.snackbar.open('note is note present at this index','',{duration:3000})
     });
   }
 

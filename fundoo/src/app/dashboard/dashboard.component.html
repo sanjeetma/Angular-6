@@ -1,3 +1,4 @@
+
 <mat-toolbar fxLayout="row" fxLayoutGap="30px" fxLayoutGap="20px">
       <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="20px">
             <button type="button" mat-button (click)="drawer.toggle()">
@@ -15,11 +16,11 @@
       <div fxLayout="row" fxLayoutAlign="center" fxLayoutGap="30px">
             <mat-card class="mat-card" fxLayout="row" fxLayout="center">
                   <mat-icon class="searchIcon">search</mat-icon>
-                  <input matInput class="searchBar">
+                  <input matInput class="searchBar" />
             </mat-card>
 
       </div>
-      
+
 
       <div class="icon" fxLayoutGap="20px">
 
@@ -37,20 +38,18 @@
             <mat-icon class="appsIcon">apps</mat-icon>
 
             <button mat-icon-button matTooltip="Account" [matMenuTriggerFor]="Account">
-            <mat-icon>account_circle</mat-icon>
+                  <mat-icon>account_circle</mat-icon>
             </button>
 
             <mat-menu #Account="matMenu">
-                  <button mat-menu-item>Sign Out</button>
-                  <button mat-menu-item></button>
-  
-              </mat-menu>
+                  <button mat-menu-item (click)="signout()">Sign Out</button>
+            </mat-menu>
       </div>
 </mat-toolbar>
 
 <mat-divider></mat-divider>
 <div>
-      <mat-drawer-container class="example-container" fxFlex=100% fxLayoutGap="20px">
+      <mat-drawer-container class="example-container">
             <mat-drawer #drawer class="example-sidenav" mode="side">
                   <mat-nav-list>
                         <mat-list-item class="NotesList" routerLink="notes">
@@ -96,18 +95,18 @@
                         </mat-list-item>
                   </mat-nav-list>
             </mat-drawer>
-            <div fxLayout="column" fxLayoutAlign="center center" fxFlex=100%>
-                           
-                  </div>
+            <div>
+
+            </div>
             <router-outlet></router-outlet>
-            
-            <div fxLayout="row" fxLayoutAlign="space-around center" >
+
+            <div>
                   <app-displaynotes></app-displaynotes>
-              </div>
-           
-            
-            
+            </div>
+
 
       </mat-drawer-container>
+
+
 
 </div>

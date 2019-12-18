@@ -1,24 +1,26 @@
-<div *ngFor="let note of noteList">
-<div fxLayout="row" fxLayoutAlign="space-around center" fxLayoutGap="20px">
+
+<div *ngFor="let note of noteList" class="NoteDisplay">
 
     <mat-card class="note_value">
 
-        <mat-card-header>
-            <mat-card-title>
-                {{note.tittle}}
-            </mat-card-title>
-        </mat-card-header>
-        <mat-card-content>
-            {{note.description}}
-        </mat-card-content>
-        
-    <app-property></app-property>  
+        <div>
 
-       </mat-card>
-    
-   
+            {{note.tittle}}
+
+        </div>
+        <div>
+            {{note.description}}
+        </div>
+         <div>
+            <button (click)="delete(note.noteId)">delete</button>
+                
+            </div>
+        <div>
+            <app-property></app-property>
+        </div>
+    </mat-card>
 </div>
- 
+
 
 <!-- <div fxLayout="row" fxLayoutAlign="space-around center">
  

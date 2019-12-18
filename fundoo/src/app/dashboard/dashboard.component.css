@@ -1,8 +1,9 @@
 .mat-card{
     
-    width: 720px;
-    height:50px;
+    width: 752px;
+    height: 20px;
     border-radius: 12px;
+
    
 }
 .keepImage{
@@ -28,11 +29,7 @@
 .appsIcon{
     margin-left:40px;
 }
-.example-container {
-    width: 1400px;
-    height: 1000px;
-    border: 1px solid rgba(0, 0, 0, 0.5);
-    }
+
     .example-sidenav {
     padding: 1%;
     width:20%;

@@ -1,18 +1,30 @@
+<div *ngIf="!open" (click)="openNotes()" class="Show_Creater">Take a Note...
+</div>
+<mat-card class="collabrate" *ngIf="open">
 
-<mat-card class="collabrate">
-        <div fxLayout="row" fxLayoutAlign="space-around center">
-    <form [formGroup]="takeNote">
-            <mat-form-field>
-                    <input matInput type="text" placeholder="Title" formControlName="title" >
-                  </mat-form-field>
-                
-                  <mat-form-field>
-                    <textarea matInput placeholder="desc" formControlName="desc"></textarea>
-                  </mat-form-field>
-                  <button mat-raised-button (click)="close()">Close</button>
+  <div  class="Open_Creater">
+     <form [formGroup]="takeNote">
+      
+        <input  class="input" matInput type="text" placeholder="Title" formControlName="title">
+      
 
-    </form>
-    <app-property></app-property>
+      
+        <textarea class="input" matInput placeholder="desc" formControlName="desc"></textarea>
+    
+     
+
+    </form> 
+
+    <!-- <div>
+       
+      <input class="input" placeholder="Title" [formControl]='title' />
     </div>
-</mat-card>
 
+    <div>
+      <input  class="input" placeholder="Description" [formControl]='desc'/>
+    </div> -->
+
+    <app-property></app-property>
+    <div (click)="close()">Close</div>
+  </div>
+</mat-card>

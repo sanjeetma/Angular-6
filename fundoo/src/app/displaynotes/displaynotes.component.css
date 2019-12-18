@@ -1,0 +1,16 @@
+.notes_Main{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 60em;
+}
+.main{
+display: flex;
+justify-content: center;
+margin-top: 20px;
+}
+.create_Note{
+    display: flex;
+    justify-content: center;
+    margin-top: 30px
+}

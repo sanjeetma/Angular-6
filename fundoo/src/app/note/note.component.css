@@ -4,9 +4,10 @@
   background-color: powderblue;
 }   */
  .note_value{
-    height: 140px;
-  width: 20%;
- 
+   min-height: 120px;
+   height: auto;
+  width: 220px;
+  margin: 11px;
 }  
 
    /* .matcard-box{

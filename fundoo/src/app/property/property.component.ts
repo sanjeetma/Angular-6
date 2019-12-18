@@ -11,5 +11,7 @@ export class PropertyComponent implements OnInit {
 
   ngOnInit() {
   }
-
+deletenote(){
+  
+}
 }
