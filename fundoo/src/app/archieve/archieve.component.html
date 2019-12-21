@@ -10,5 +10,9 @@
         <div>
             {{note.description}}
         </div>
+       <app-property></app-property>
+       <button mat-icon-button matTooltip="Archieve" (click)="Archieve(note.noteId)">
+        <mat-icon style="font-size: 17px !important">archive</mat-icon>
+    </button>
         </mat-card>
         </div>

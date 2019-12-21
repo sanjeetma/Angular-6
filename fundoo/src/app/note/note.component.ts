@@ -5,14 +5,19 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Note } from '../note';
 import { FormGroup, FormControl } from '@angular/forms';
+import { DisplaynotesComponent } from '../displaynotes/displaynotes.component';
+
 
 
 @Component({
   selector: 'app-note',
   templateUrl: './note.component.html',
-  styleUrls: ['./note.component.css']
+  styleUrls: ['./note.component.css'],
+  
+  
 })
 export class NoteComponent implements OnInit {
+  message:string;
   note: Note;
   tittle: any;
   desc: any;
@@ -34,6 +39,8 @@ export class NoteComponent implements OnInit {
       .subscribe((response: any) => {
         this.noteList = response;
         console.log(this.noteList);
+        
+
         //   console.log(this.noteList.length)
         //    for (var i = 0; i < response.length; i++) {
         //      this.note = response[i];

@@ -52,10 +52,11 @@
       <mat-drawer-container class="example-container">
             <mat-drawer #drawer class="example-sidenav" mode="side">
                   <mat-nav-list>
-                        <mat-list-item class="NotesList" routerLink="notes">
+                        <mat-list-item class="NotesList" [routerLink]="notes">
+                                 
 
                               <mat-icon matListIcon><img src="assets/icons/notes24px.svg"></mat-icon>
-                              <a matLine>Notes</a>
+                              <a matLine (click)="back()">Notes</a>
                         </mat-list-item>
 
                         <mat-list-item routerLink="notes/getAllReminder">
@@ -64,30 +65,33 @@
                         </mat-list-item>
 
                   </mat-nav-list>
-                  <!-- <mat-divider></mat-divider>
+                  <mat-divider></mat-divider>
                   <mat-nav-list>
                         <p class="labelTitle">Labels</p>
                          <mat-list-item>
                         <mat-nav-list>
                               <mat-list-item *ngFor="let label of labels">
-                                     <mat-icon matListIcon><img src="../../../assets/label.svg"></mat-icon>
-                                    <a matLine>{{label.label}}</a>
+                                     <mat-icon matListIcon><img src="assets/icons/label-24px.svg"></mat-icon>
+                                    <a matLine>{{label.label}}</a> 
                               </mat-list-item> 
                         </mat-nav-list>
                          </mat-list-item> 
-                        <mat-list-item (click)="opendialogLabel(items)">
-                              <mat-icon matListIcon><img src="../../../assets/editLabel.svg"></mat-icon> 
-                              <a matLine>Edit Labels</a>
-                        </mat-list-item> -->
+                         <mat-list-item (click)="opendialogLabel(items)">
+                              <mat-icon matListIcon><img src="assets/icons/edit18px.svg"></mat-icon> 
+                        <a matLine>Edit Labels</a> 
+                        </mat-list-item>
 
-                  <!-- </mat-nav-list> -->
+                   </mat-nav-list>
                   <mat-divider></mat-divider>
                   <mat-nav-list>
+                        
 
+                        <mat-list-item >
+                        <!-- <a routerLink="dashboard/getAllArchived" routerLinkActive="active"></a> -->
 
-                        <mat-list-item>
                               <mat-icon matListIcon>archive</mat-icon>
-                              <a matLine>Archive</a>
+                              <a matLine routerLink="getAllArchived">Archive</a>
+                              
                         </mat-list-item>
                         <mat-list-item routerLink="notes/getAllTrash">
                               <mat-icon matListIcon>delete</mat-icon>

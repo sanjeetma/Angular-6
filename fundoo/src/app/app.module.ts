@@ -66,6 +66,7 @@ import { ResetComponent } from './reset/reset.component';
 import { TrashComponent } from './trash/trash.component';
 import { CollabratorComponent } from './collabrator/collabrator.component';
 import { PropertyComponent } from './property/property.component';
+import { ColorComponent } from './color/color.component';
 
 
 
@@ -89,6 +90,7 @@ import { PropertyComponent } from './property/property.component';
     TrashComponent,
     CollabratorComponent,
     PropertyComponent,
+    ColorComponent,
     
   ],
   imports: [

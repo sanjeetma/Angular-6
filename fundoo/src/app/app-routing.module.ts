@@ -9,6 +9,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { NoteComponent } from './note/note.component';
 import { CollabratorComponent } from './collabrator/collabrator.component';
 import { ArchieveComponent } from './archieve/archieve.component';
+import { ColorComponent } from './color/color.component';
 
 
 
@@ -30,16 +31,28 @@ const routes: Routes = [
   },
   
   {
-    path:'dashboard',component:DashboardComponent
+    path:'dashboard',component:DashboardComponent,children:[
+      {
+        path:'getAllArchived',component:ArchieveComponent
+      },
+      //  {
+      //     path:'',component:NoteComponent
+      //  }
+    ]
      
   },
-  {path:'getAllArchived',component:ArchieveComponent},
+  {
+    path:'getAllArchived',component:ArchieveComponent
+  },
   {
     path:'notes',component:NoteComponent
     
   },
   {
     path:"collabrate", component:CollabratorComponent
+  },
+  {
+    path:"color",component:ColorComponent
   }
   
 ];
